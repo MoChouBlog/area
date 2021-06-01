@@ -25,6 +25,18 @@
 - demo：collect.php
 
 
+##### 导入数据
+
+- 文件：AreaDatabase.php
+
+- 实例化：new AreaDatabase(数据库配置, 年份表, 采集数据存放的地址);
+
+- 函数调用，insertData()
+
+- 更新时间：2021年6月1日
+
+- demo：database.php
+
 
 
 #### 捐赠
