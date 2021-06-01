@@ -37,6 +37,13 @@
 
 - demo：database.php
 
+##### 查询数据
+
+- 文件：AreaSelect.php
+- 实例化：new AreaSelect(数据库配置);
+- 函数调用，select()，第一个入参的是地区，此参数必填，第二个是地区代码，不入参即获取该年全国省份数据
+- 更新时间：2021年6月1日
+- demo：select.php
 
 
 #### 捐赠
