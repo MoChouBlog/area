@@ -40,11 +40,6 @@ class AreaCollect
             mkdir($path);
         }
 
-        //检查年份采集文件夹是否存在
-        if (!file_exists($this->outBase)) {
-            $this->init_year_path();
-        }
-
         /*初始化数据*/
         //user_agent列表
         $this->user_agent_list = [
@@ -63,6 +58,11 @@ class AreaCollect
         ];
         //采集休眠时间列表
         $this->requestSleep = [0, 50000, 0, 100000, 0, 150000, 0, 200000, 0, 250000, 0, 300000, 0];
+
+        //检查年份采集文件夹是否存在
+        if (!file_exists($this->outBase)) {
+            $this->init_year_path();
+        }
 
         //采集地址次数
         $this->touch = 0;
@@ -367,7 +367,6 @@ class AreaCollect
             usleep(array_rand($this->requestSleep));
             $this->user_agent = array_rand($this->user_agent_list);
         }
-        $this->real_touch++;
 
         try {
             $url = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/' . $this->year . '/' . $url;
@@ -379,8 +378,10 @@ class AreaCollect
                 ]
             ]);
         } catch (\Throwable $throwable) {
-            exit(json_encode(['message' => '被ban了，请稍后重试', 'status' => false], JSON_UNESCAPED_UNICODE));
+            exit(json_encode(['message' => '被ban了，请稍后重试', 'data' => ['real_touch' => $this->real_touch, 'touch' => $this->touch], 'status' => false], JSON_UNESCAPED_UNICODE));
         }
+
+        $this->real_touch++;
 
         $html = (string)$res->getBody();
 
