@@ -373,7 +373,7 @@ class AreaCollect
             $client = new Client();
             $res = $client->request('GET', $url, [
                 'headers' => [
-                    'User-Agent' => $this->user_agent,
+                    'User-Agent'      => $this->user_agent,
                     'Accept-Encoding' => 'gzip, deflate, br',
                 ]
             ]);
@@ -385,7 +385,7 @@ class AreaCollect
 
         $html = (string)$res->getBody();
 
-        $html = iconv("gb2312", "utf-8//IGNORE", $html);
+//        $html = iconv("gb2312", "utf-8//IGNORE", $html);
 
         //写入缓存
         if (!file_exists($path)) {//检查文件夹是否存在
