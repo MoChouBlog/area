@@ -67,7 +67,8 @@
 
 - 微信、支付宝
 
-![微信收款码](https://images.pipihublog.com/20210601105403.png?imageView2/2/w/200/h/200)![支付宝收款码](https://images.pipihublog.com/20210601105404.png?imageView2/2/w/200/h/200)
+![微信收款码](https://image.pipihublog.com/20210601105403.png?imageView2/2/w/200/h/200)![支付宝收款码](https://image.pipihublog.com/20210601105404.png?imageView2/2/w/200/h/200)
 
 #### 联系作者
-![](https://images.pipihublog.com/20210601105522.jpg?imageView2/2/w/400/h/400)
+
+![](https://image.pipihublog.com/20210601105522.jpg?imageView2/2/w/400/h/400)

@@ -369,7 +369,7 @@ class AreaCollect
         }
 
         try {
-            $url = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/' . $this->year . '/' . $url;
+            $url = 'http://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm/' . $this->year . '/' . $url;
             $client = new Client();
             $res = $client->request('GET', $url, [
                 'headers' => [
