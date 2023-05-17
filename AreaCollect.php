@@ -231,23 +231,13 @@ class AreaCollect
         $html = $this->curl_info($url);
 
         // 切片选择器
-        $range = '.countytable>.countytr';
-        // 采集规则
-        $rules = [
-            // 代码
-            'code' => ['td:eq(0)', 'text'],
-            // 链接地址
-            'href' => ['td a', 'href'],
-            // 名称
-            'name' => ['td:eq(1)', 'text']
+        $range_list = [
+            '.countytable>.countytr',
+            '.towntable>.towntr',
+            '.countytable>.towntr'
         ];
 
-        $data = QueryList::html($html)->rules($rules)->query()->range($range)->queryData();//多个数组
-
-        //跨级了
-        if (empty($data)) {
-            // 切片选择器
-            $range = '.towntable>.towntr';
+        foreach ($range_list as $range){
             // 采集规则
             $rules = [
                 // 代码
@@ -259,6 +249,10 @@ class AreaCollect
             ];
 
             $data = QueryList::html($html)->rules($rules)->query()->range($range)->queryData();//多个数组
+
+            //跨级了
+            if (empty($data))
+                continue;
         }
 
         return $data;
